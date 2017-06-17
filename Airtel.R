@@ -18,11 +18,11 @@ library(data.table) # Used to join rows one after another
 
 infile = readline(prompt="Input file: ")
 SUS_NO = readline(prompt="Suspect number: ")
-imp_row = readline(prompt="Row no. containing headers: ")
-raw_sheet = readline(prompt="Raw CDR Sheet number: ")
+imp_row = as.numeric(readline(prompt="Row no. containing headers: "))
+raw_sheet = as.numeric(readline(prompt="Raw CDR Sheet number: "))
 
 # Read particular sheet from excel workbook; adjust startRow as per the number of useless rows in the beginnig, remember to remove empty rows
-df = read.xlsx(xlsxFile=infile, sheet=1, startRow=6, colNames=TRUE, detectDates=TRUE, skipEmptyRows=FALSE)
+df = read.xlsx(xlsxFile=infile, sheet=raw_sheet, startRow=imp_row, colNames=TRUE, detectDates=TRUE, skipEmptyRows=FALSE)
 
 df <- df[!is.na(df$`Dur(s)`),] # remove useless rows from bottom
 
