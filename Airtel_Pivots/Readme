@@ -1,0 +1,6 @@
+Copy raw XLSX file from MSP to Scripts folder.
+Run scripts in the following sequence:
+
+Airtel.R -> B_Pivot.R -> IMEI_Pivot.R -> Tower.R -> Town_Pivot.R
+
+Tower.R is temporary in the sense that most probably, all tower details are available to us beforehand... so no need to run it in case you already have it.
